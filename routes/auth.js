@@ -3,17 +3,17 @@ var passport = require('passport');
 
 var router = express.Router();
 
-
-router.post('/login/password',
+router.post(
+  '/login/password',
   passport.authenticate('local'),
-  function(req, res) {
+  function (req, res) {
     res.send('authentified');
   }
 );
 
-router.get('/logout', function(req, res, next) {
+router.get('/logout', function (req, res, next) {
   req.logout();
-  res.redirect('/');
+  res.send('logged out');
 });
 
 module.exports = router;
